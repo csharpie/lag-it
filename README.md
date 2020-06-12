@@ -64,7 +64,7 @@ There are three collections:
 yarn deploy:firebase:hosting
 
 # deploy for firebase rules
-yarn deploy:firebase:rukes
+yarn deploy:firebase:rules
 ```
 
 ## Sources of Reference
