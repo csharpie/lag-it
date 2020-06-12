@@ -71,8 +71,8 @@ yarn deploy:firebase:rules
 
 ## Sources of Reference
 * Victor Mejia's Lynda Course - [Angular: Cloud-Powered Apps with Firebase](https://www.lynda.com/Firebase-tutorials/Angular-Cloud-Powered-Apps-Firebase/2810170-2.html)
-* Jeff Delaney of Fireship.io's  - [Star Ratings System With Firestore](https://fireship.io/lessons/star-ratings-system-with-firestore/)
-* Jeff Delaney of Fireship.io's - [Google OAuth with @angular.fire](https://fireship.io/lessons/angularfire-google-oauth/)
+* Jeff Delaney of Fireship.io  - [Star Ratings System With Firestore](https://fireship.io/lessons/star-ratings-system-with-firestore/)
+* Jeff Delaney of Fireship.io - [Google OAuth with @angular/fire](https://fireship.io/lessons/angularfire-google-oauth/)
 * Blog Post by Jorge Vergara - [How to get the document ID with AngularFire](https://javebratt.com/angularfire-idfield/)
 
 ## Asset Reference
