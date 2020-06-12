@@ -55,6 +55,7 @@ There are three collections:
 | --------------------
 | `uuid`
 | `displayName`
+| `photoUrl`
 
 
 ## Deploying to Firebase
