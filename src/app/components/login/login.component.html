@@ -1,0 +1,76 @@
+<div class="ui text container">
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <span>🍺 </span>
+        <div *ngIf="isSignUp" class="content">
+          Sign Up for an account
+        </div>
+        <div *ngIf="isLogin" class="content">
+          Log in to your account
+        </div>
+      </h2>
+      <form class="ui large form" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"
+        [class.error]="error">
+        <div class="ui stacked segment">
+          <div *ngIf="isSignUp" class="field" [class.error]="error">
+            <div class="two fields">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon"></i>
+                  <input type="text" name="firstName" placeholder="First Name" ngModel>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon"></i>
+                  <input type="text" name="lastName" placeholder="Last Name" ngModel>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field" [class.error]="error">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="email" name="email" placeholder="E-mail address" ngModel>
+            </div>
+          </div>
+          <div class="field" [class.error]="error">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" placeholder="Password" ngModel>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="submit" class="ui fluid large teal submit button">{{ action | uppercase }}</button>
+          </div>
+
+        </div>
+      </form>
+
+      <div *ngIf="error" class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+          There were some errors with your submission
+        </div>
+        <ul class="list">
+          <li>{{error}}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="isSignUp" class="ui message">
+        Already have an account? <a href="#" (click)="action = 'login'">Login In</a>
+      </div>
+      <div *ngIf="isLogin" class="ui message">
+        Readying to begin laging? <a href="#" (click)="action = 'signup'">Sign Up</a>
+      </div>
+
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="ui teal labeled icon button" (click)="signInByGoogleAuthOnClick()">
+        Sign in with Google
+        <i class="google icon"></i>
+      </div>
+    </div>
+  </div>

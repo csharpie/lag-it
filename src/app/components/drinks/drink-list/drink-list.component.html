@@ -1,0 +1,95 @@
+<div *ngIf="drinkService.drinks$ | async as drinks" class="ui divided items segment">
+  <div class="item">
+    <div class="extra">
+      <button class="ui primary button" [routerLink]="['new']">
+        <i class="plus icon"></i>
+        ADD DRINK
+      </button>
+    </div>
+  </div>
+  <div *ngFor="let drink of drinks" class="item">
+    <div class="image">
+      <img src="assets/beer.png">
+    </div>
+    <div class="content">
+      <a *ngIf= "drink?.url" class="header" [href]="drink?.url">{{ drink.name }}</a>
+      <div *ngIf= "!drink?.url" class="item header">
+        {{ drink.name }}
+      </div>
+
+      <div *ngIf="drink.brand" class="meta">
+        <span *ngIf="drink.brandUrl" class="cinema"><a [href]="drink.brandUrl">{{drink.brand}}</a></span>
+        <span *ngIf="!drink.brandUrl" class="cinema">{{ drink.brand }}</span>
+      </div>
+      <div class="description">
+        <p>{{ drink.description }}</p>
+      </div>
+      <div class="extra">
+        <div class="ui label">{{ drink.abv | number:'1.1-1' }}% ABV</div>
+      </div>
+      <div class="ui right floated primary button" [routerLink]="['edit', drink.drinkId]">
+        EDIT DRINK
+        <i class="right chevron icon"></i>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="item">
+    <div class="image">
+      <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">12 Years a Slave</a>
+      <div class="meta">
+        <span class="cinema">Union Square 14</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        <div class="ui label">IMAX</div>
+        <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="image">
+      <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">My Neighbor Totoro</a>
+      <div class="meta">
+        <span class="cinema">IFC Cinema</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        <div class="ui right floated primary button">
+          Buy tickets
+          <i class="right chevron icon"></i>
+        </div>
+        <div class="ui label">Limited</div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="image">
+      <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">Watchmen</a>
+      <div class="meta">
+        <span class="cinema">IFC</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        <div class="ui right floated primary button">
+          Buy tickets
+          <i class="right chevron icon"></i>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

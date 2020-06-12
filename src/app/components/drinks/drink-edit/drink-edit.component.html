@@ -1,0 +1,76 @@
+<div class="ui text container">
+  <div class="column twelve wide">
+    <div *ngIf="editDrinkForm.invalid && (editDrinkForm.dirty || editDrinkForm.touched)" class="ui error message">
+      <i class="close icon"></i>
+      <div class="header">
+        Make sure your entry meets these requirements
+      </div>
+      <ul class="list">
+        <li *ngIf="name.invalid && name.errors.required">
+          Name is required.</li>
+        <li *ngIf="name.invalid && name.errors.minLength">
+          Name not long enough.</li>
+        <li *ngIf="description.invalid && description.errors.required">
+          Description is required.</li>
+        <li *ngIf="description.invalid && description.errors.minLength">
+          Description not long enough.</li>
+        <li *ngIf="brand.invalid && brand.errors.required">
+          Brand is required.</li>
+        <li *ngIf="brand.invalid && brand.errors.minLength">
+          Brand not long enough.</li>
+        <li *ngIf="abv.invalid && abv.errors.minLength">
+          ABV must be higher than 1.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="column twelve wide">
+    <form class="ui large form" [formGroup]="editDrinkForm" (ngSubmit)="onSubmit()" [class.loading]="loading">
+      <div class="field" [class.error]="name.invalid && (name.dirty || name.touched)">
+        <label>Drink Name</label>
+        <div class="ui left icon input">
+          <i class="glass martini icon"></i>
+          <input type="text" placeholder="What's it called?" formControlName="name" required>
+        </div>
+      </div>
+      <div class="field" [class.error]="description.invalid && (description.dirty || description.touched)">
+        <label>Drink Description</label>
+        <div class="ui input">
+          <textarea placeholder="What's in it? Tell me what made it so remarkable!" formControlName="description"
+            required></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label>Drink Link</label>
+        <div class="ui left icon input">
+          <i class="linkify icon"></i>
+          <input type="text" placeholder="What's the drink link?" formControlName="url">
+        </div>
+      </div>
+      <div class="field" [class.error]="brand.invalid && (brand.dirty || brand.touched)">
+        <label>Brand</label>
+        <div class="ui left icon input">
+          <i class="building icon"></i>
+          <input type="text" placeholder="What's the brand name?" formControlName="brand">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field column eight wide" [class.error]="abv.invalid && (abv.dirty || abv.touched)">
+          <label>ABV</label>
+          <div class="ui left icon input">
+            <i class="percent icon"></i>
+            <input type="number" placeholder="Enter the ABV." min="0" step=".5" formControlName="abv" required>
+          </div>
+        </div>
+        <div class="field column eight wide">
+          <label>My Rating</label>
+          <div class="ui input">
+            <div class="ui star rating"></div>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button [disabled]="editDrinkForm.invalid" type="submit"
+          class="ui fluid large teal submit button">{{ 'läg it' | uppercase }}</button>
+      </div>
+    </form>
+  </div>
